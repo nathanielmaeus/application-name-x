@@ -15,7 +15,7 @@ const SCORES: IScore = {
 
 function getFormattedDate(): string {
   var date = new Date();
-  return `${date.getDate()}.${date.getMonth() + 1}.${date.getFullYear()}}`;
+  return `${date.getDate()}.${date.getMonth() + 1}.${date.getFullYear()}`;
 }
 
 export function formateFormData(data: IForm): ICandidate {

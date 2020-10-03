@@ -91,7 +91,7 @@ function ApplicantForm({ onSubmit }: IApplicantFormProps) {
         />
         <Input
           id="lastName"
-          name="Lat Name"
+          name="Last Name"
           placeholder="Doe"
           onChange={handleChange}
           onEnter={handleChange}
@@ -103,7 +103,7 @@ function ApplicantForm({ onSubmit }: IApplicantFormProps) {
         type="tel"
         pattern="[+]{1}[0-9]{11,14}"
         name="Phone Number"
-        placeholder="+123111233"
+        placeholder="+1 231 112 3344"
         onChange={handleChange}
         onEnter={handleChange}
         value={state.phoneNumber}
