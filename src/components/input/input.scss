@@ -1,0 +1,29 @@
+.input {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 44px;
+  width: 100%;
+  outline: none;
+  line-height: 1.38;
+  border-width: 1px;
+  border-style: solid;
+  border-color: rgb(199, 205, 216);
+  color: rgb(70, 88, 119);
+  font-size: 14px;
+  border-radius: 6px;
+  background-color: white;
+  padding: 8px 12px;
+  box-sizing: border-box;
+}
+
+label {
+  display: block;
+  margin: 8px 0;
+}
+
+.container {
+  width: 100%;
+  text-align: left;
+}

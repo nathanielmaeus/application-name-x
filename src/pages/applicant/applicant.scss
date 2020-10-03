@@ -1,0 +1,40 @@
+.layout {
+  width: 100%;
+  max-width: 900px;
+  margin: 2rem auto;
+  text-align: left;
+  padding: 1.4rem;
+  background-color: rgb(250, 251, 253);
+  border-radius: 0.8rem;
+}
+
+.title {
+  margin-top: 8px;
+  margin-bottom: 8px;
+  color: rgb(48, 52, 70);
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.about {
+  display: flex;
+  align-items: center;
+  margin: 1rem 0;
+}
+
+.avatar {
+  width: 72px;
+  height: 72px;
+  background-color: rgb(37, 138, 255);
+  border-radius: 50%;
+}
+
+.description {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-left: 1rem;
+  color: rgb(143, 156, 178);
+  font-size: 13px;
+  font-weight: 500;
+}

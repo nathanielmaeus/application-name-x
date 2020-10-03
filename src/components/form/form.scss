@@ -1,0 +1,18 @@
+
+
+fieldset {
+  border: none;
+}
+
+.group {
+  display: flex;
+  justify-content: space-between;
+
+  div:last-child {
+    margin-left: 1.6rem;
+  }
+}
+
+.submitButton {
+  margin-top: 2rem;
+}

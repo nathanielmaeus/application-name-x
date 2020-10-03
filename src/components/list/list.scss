@@ -1,0 +1,22 @@
+.form {
+  padding: 1.4rem;
+  background-color: rgb(250, 251, 253);
+  border-radius: 0.8rem;
+}
+
+fieldset {
+  border: none;
+}
+
+.group {
+  display: flex;
+  justify-content: space-between;
+
+  div:last-child {
+    margin-left: 1.6rem;
+  }
+}
+
+.submitButton {
+  margin-top: 2rem;
+}
