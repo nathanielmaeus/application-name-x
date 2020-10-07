@@ -1,32 +1,15 @@
 import { ICandidate } from "src/types";
-
-const STORAGE_KEY = 'candidates';
+import { getCandidatesFromLS } from "./localStorage";
 
 export async function getCandidatesApi(): Promise<ICandidate[]> {
   const res = await fetch("src/public/data/candidates.json");
   const candidatesFromApi: ICandidate[] = await res.json();
+  
   await sleep(1000);
 
   const candidatesFromLocalStorage = getCandidatesFromLS();
-  const sharedData = [...candidatesFromLocalStorage, ...candidatesFromApi];
-  return sharedData;
-}
-
-export function getCandidatesFromLS() {
-  const candidatesFromLS = localStorage.getItem(STORAGE_KEY);
-  const candidates: ICandidate[] = candidatesFromLS
-    ? JSON.parse(candidatesFromLS)
-    : [];
-
-  return candidates;
-}
-
-export function saveCandidatesToLS(candidate: ICandidate): void {
-  const candidatesFromLS = getCandidatesFromLS();
-  localStorage.setItem(
-    STORAGE_KEY,
-    JSON.stringify([...candidatesFromLS, candidate])
-  );
+  const candidatesFromApiWithIdx = candidatesFromApi.map((candidate, index) => ({ ...candidate, id: index}));
+  return[...candidatesFromLocalStorage, ...candidatesFromApiWithIdx];
 }
 
 function sleep(ms: number) {

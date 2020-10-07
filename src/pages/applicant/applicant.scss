@@ -1,17 +1,19 @@
+@import 'colors';
+
 .layout {
   width: 100%;
   max-width: 900px;
   margin: 2rem auto;
-  text-align: left;
   padding: 1.4rem;
-  background-color: rgb(250, 251, 253);
+  text-align: left;
+  background-color: $colorDarkWhite;
   border-radius: 0.8rem;
 }
 
 .title {
   margin-top: 8px;
   margin-bottom: 8px;
-  color: rgb(48, 52, 70);
+  color: $colorDarkGray;
   font-size: 18px;
   font-weight: 700;
 }
@@ -25,7 +27,7 @@
 .avatar {
   width: 72px;
   height: 72px;
-  background-color: rgb(37, 138, 255);
+  background-color: $colorBlue;
   border-radius: 50%;
 }
 
@@ -34,7 +36,7 @@
   flex-direction: column;
   align-items: flex-start;
   margin-left: 1rem;
-  color: rgb(143, 156, 178);
+  color: $colorDarkGray;
   font-size: 13px;
   font-weight: 500;
 }

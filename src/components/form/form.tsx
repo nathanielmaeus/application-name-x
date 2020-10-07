@@ -1,4 +1,4 @@
-import React, { useReducer } from "react";
+import React, { useCallback, useReducer } from "react";
 
 import styles from "./form.scss";
 import { Button } from "src/components/button";
@@ -52,14 +52,14 @@ function mainReducer(state: IForm, action: IAction) {
 function ApplicantForm({ onSubmit }: IApplicantFormProps) {
   const [state, dispatch] = useReducer(mainReducer, initialState);
 
-  const handleChange = (id: string, value: string) => {
+  const handleChange = useCallback((id: string, value: string) => {
     dispatch({ type: "CHANGE", result: { id, value } });
-  };
+  }, [dispatch])
 
-  const handleSubmit = (e: React.FormEvent<EventTarget>) => {
+  const handleSubmit = useCallback((e: React.FormEvent<EventTarget>) => {
     e.preventDefault();
     onSubmit(state);
-  };
+  }, [onSubmit]);
 
   const renderFields = () => (
     <fieldset className={styles.block}>

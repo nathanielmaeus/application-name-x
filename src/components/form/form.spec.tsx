@@ -1,7 +1,6 @@
 import React from "react";
 import { unmountComponentAtNode } from "react-dom";
 import { render, fireEvent, screen } from "@testing-library/react";
-import { act } from "react-dom/test-utils";
 import Form from "./form";
 
 let container: any = null;
@@ -29,9 +28,7 @@ function handleChange(element: Element, value: string) {
 test("should return valid data", async () => {
   const onSubmit = jest.fn();
 
-  act(() => {
-    render(<Form onSubmit={onSubmit} />, container);
-  });
+  render(<Form onSubmit={onSubmit} />, container);
 
   handleChange(getElement("#email"), "email");
   handleChange(getElement("#firstName"), "firstName");
@@ -40,9 +37,7 @@ test("should return valid data", async () => {
   handleChange(getElement("#password"), "password");
   handleChange(getElement("#phoneNumber"), "29347239487");
 
-  await act(async () => {
-    fireEvent.click(screen.getByRole("button"));
-  });
+  await fireEvent.click(screen.getByRole("button"));
 
   expect(onSubmit).toHaveBeenCalledTimes(1);
   expect(onSubmit).toHaveBeenCalledWith({

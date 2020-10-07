@@ -1,22 +1,10 @@
 import React from "react";
-import { unmountComponentAtNode } from "react-dom";
 import { render } from "@testing-library/react";
-import { act } from "react-dom/test-utils";
 import List from "./list";
-
-let container: any = null;
-
-beforeEach(() => {
-  container = document.createElement("div");
-});
-afterEach(() => {
-  unmountComponentAtNode(container);
-  container.remove();
-  container = null;
-});
 
 const list = [
   {
+    id: 1,
     fullName: "Ruby Banks",
     email: "ruby.banks@example.com",
     password: "123123",
@@ -28,10 +16,7 @@ const list = [
 ];
 
 test("should return valid data", async () => {
-  act(() => {
-    render(<List list={list} />, container);
-  });
-
-  const items = document.querySelectorAll('[data-locator="list-item"]')!;
+  const { container } = render(<List list={list} />);
+  const items = container.querySelectorAll('[data-locator="list-item"]')!;
   expect(items.length).toEqual(1);
 });

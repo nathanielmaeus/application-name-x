@@ -1,23 +1,20 @@
 import * as React from "react";
-import { useHistory } from 'react-router-dom';
+import { useHistory } from "react-router-dom";
 
 import { Form } from "src/components/form";
 import { IForm } from "src/components/form/form";
+import { saveCandidate } from "src/model";
 
 import styles from "./applicant.scss";
 import { formateFormData } from "./formateFormData";
-import { saveCandidatesToLS } from "src/services/api";
 
-interface IApplicantProps {}
-
-const Applicant: React.FC<IApplicantProps> = ({}) => {
+const Applicant: React.FC = () => {
   const history = useHistory();
 
   const handleSubmit = (data: IForm) => {
     const formattedData = formateFormData(data);
-    
-    saveCandidatesToLS(formattedData);
-    history.push('/candidates');
+    saveCandidate(formattedData);
+    history.push("/candidates");
   };
 
   return (

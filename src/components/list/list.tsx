@@ -10,7 +10,7 @@ interface IListViewProps {
 
 function ListView({ list }: IListViewProps) {
   const renderListItem = (candidate: ICandidate) => {
-    return <CandidateListItem candidate={candidate} key={candidate.email}/>;
+    return <CandidateListItem candidate={candidate} key={candidate.id}/>;
   };
 
   return (

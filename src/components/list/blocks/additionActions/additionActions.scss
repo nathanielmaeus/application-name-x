@@ -1,0 +1,20 @@
+.container {
+  position: relative;
+}
+
+.actionsContainer {
+  position: absolute;
+  min-width: 150px;
+  top: 0px;
+  right: 0;
+  background: white;
+  box-shadow: rgba(199, 205, 216, 0.4) 0px 4px 12px 0px;
+}
+
+.action {
+  padding: 8px;
+
+  &:hover {
+    background-color: #eee;
+  }
+}

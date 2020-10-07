@@ -30,4 +30,4 @@ function Button({
   );
 }
 
-export default Button;
+export default React.memo(Button);
