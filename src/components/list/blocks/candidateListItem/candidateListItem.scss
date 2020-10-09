@@ -43,7 +43,30 @@
   align-items: center;
 }
 
-.progress,
+.progress {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background-color: transparent;
+  border: 4px solid #222;
+}
+
+.low {
+  border-color: $colorDarkGray;
+}
+
+.middle {
+  border-color: #16c6ab;
+}
+
+.high {
+  border-color: #68cf4f;
+}
+
+
 .avatar,
 .avatar img {
   display: flex;

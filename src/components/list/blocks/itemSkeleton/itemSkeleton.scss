@@ -1,0 +1,108 @@
+@import "colors";
+
+@mixin loadingSkeleton() {
+  line-height: 1;
+  display: inline-block;
+  overflow: hidden;
+  position: relative;
+  border-radius: 2px;
+
+  background-color: #f7f7f7;
+
+  &:before {
+    content: "";
+    position: absolute;
+    height: 100%;
+    width: 500px;
+    top: 0;
+    left: -500px;
+    background-image: linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0),
+      rgba(255, 255, 255, 0.6),
+      rgba(255, 255, 255, 0)
+    );
+    animation: progress 1.2s ease-in-out infinite;
+  }
+}
+
+@keyframes progress {
+  0% {
+    left: -500px;
+  }
+  100% {
+    left: 100%;
+  }
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1.5rem;
+  padding: 1rem;
+  background: $colorWhite;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  box-shadow: $shadowBase;
+}
+
+.status {
+  height: 18px;
+  max-width: 80px;
+  background-color: $colorDarkGray;
+  @include loadingSkeleton();
+}
+
+.row {
+  height: 14px;
+  width: 100%;
+  max-width: 150px;
+  margin-top: 4px;
+  background-color: $colorDarkGray;
+  @include loadingSkeleton();
+}
+
+.about {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 1.7rem;
+}
+
+.textInfo {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-left: 1rem;
+}
+
+.applied {
+  font-size: 0.8rem;
+}
+
+.wrapper {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.progress {
+  min-width: 48px;
+  max-height: 48px;
+  border-radius: 50%;
+  background-color: transparent;
+  border: 4px solid $colorDarkGray;
+}
+
+.avatar,
+.avatar img {
+  min-width: 48px;
+  min-height: 48px;
+  background-color: $colorBlueTransparent;
+  border-radius: 50%;
+}
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+}

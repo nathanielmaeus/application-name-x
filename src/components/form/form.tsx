@@ -59,7 +59,7 @@ function ApplicantForm({ onSubmit }: IApplicantFormProps) {
   const handleSubmit = useCallback((e: React.FormEvent<EventTarget>) => {
     e.preventDefault();
     onSubmit(state);
-  }, [onSubmit]);
+  }, [onSubmit, state]);
 
   const renderFields = () => (
     <fieldset className={styles.block}>

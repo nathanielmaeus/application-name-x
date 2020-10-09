@@ -13,13 +13,29 @@ interface ICandidateListItemProps {
 function CandidateListItem({ candidate }: ICandidateListItemProps) {
   const [withError, setWithError] = useState(false);
 
+  const getProgressClass = () => {
+    if (!candidate.progress) {
+      return styles.low;
+    }
+
+    if (candidate.progress > 50) {
+      return styles.high;
+    }
+
+    if (candidate.progress > 20) {
+      return styles.middle;
+    }
+
+    return styles.low;
+  };
+
   const handleErrorLoad = () => {
     setWithError(true);
   };
 
   const handleChangeStatus = useCallback(() => {
     changeStatusCandidate(candidate.id);
-  }, [])
+  }, []);
 
   const handleDelete = useCallback(() => {
     removeCandidate(candidate.id);
@@ -39,7 +55,9 @@ function CandidateListItem({ candidate }: ICandidateListItemProps) {
             <div className={styles.email}>{candidate.email}</div>
           </div>
         </div>
-        <div className={styles.progress}>{candidate.progress || 0} %</div>
+        <div className={cls(styles.progress, getProgressClass())}>
+            {candidate.progress || 0} %
+        </div>
       </div>
       <div className={styles.status}>{candidate.state}</div>
       <div className={styles.footer}>

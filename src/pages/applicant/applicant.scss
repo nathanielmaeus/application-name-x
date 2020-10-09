@@ -1,13 +1,10 @@
 @import 'colors';
 
 .layout {
-  width: 100%;
-  max-width: 900px;
-  margin: 2rem auto;
-  padding: 1.4rem;
   text-align: left;
   background-color: $colorDarkWhite;
   border-radius: 0.8rem;
+  padding: 2rem;
 }
 
 .title {

@@ -35,11 +35,15 @@ const $error = createStore<string | null>(null);
 export const changeStatusCandidate = createEvent<number>();
 
 $candidates.on(changeStatusCandidate, (candidates, id) => {
-  const currentCandidateIndex = candidates.findIndex((newCandidate) => newCandidate.id === id)
-  
-  const currentStepIndex = Object.values(stepsDictionary).findIndex((step) => candidates[currentCandidateIndex].state === step)
+  const currentCandidateIndex = candidates.findIndex(
+    (newCandidate) => newCandidate.id === id
+  );
+
+  const currentStepIndex = Object.values(stepsDictionary).findIndex(
+    (step) => candidates[currentCandidateIndex].state === step
+  );
   const newStep = stepsDictionary[STEPS[currentStepIndex + 1]];
-  
+
   candidates[currentCandidateIndex].state = newStep;
   return [...candidates];
 });
@@ -52,7 +56,7 @@ $candidates.on(removeCandidate, (candidates, id) => {
   return candidates.filter((candidate) => candidate.id !== id);
 });
 
-// SAVE CANDIDATE 
+// SAVE CANDIDATE
 export const saveCandidate = createEvent<ICandidate>();
 
 $candidates.on(saveCandidate, (candidates, candidate) => {
@@ -67,10 +71,7 @@ export const getCandidates = createEffect<void, ICandidate[], string>().use(
 
 $status.on(getCandidates, () => STATUS.loading);
 
-$candidates.on(getCandidates.done, (candidates, { result }) => [
-  ...result,
-  ...candidates,
-]);
+$candidates.on(getCandidates.done, (_, { result }) => [...result]);
 $status.on(getCandidates.done, () => STATUS.loaded);
 
 $candidates.on(getCandidates.fail, () => []);

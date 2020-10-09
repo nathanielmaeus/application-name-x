@@ -12,6 +12,8 @@ const Applicant: React.FC = () => {
   const history = useHistory();
 
   const handleSubmit = (data: IForm) => {
+    console.log(data);
+    
     const formattedData = formateFormData(data);
     saveCandidate(formattedData);
     history.push("/candidates");
