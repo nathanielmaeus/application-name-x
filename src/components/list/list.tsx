@@ -1,6 +1,5 @@
 import React from "react";
 
-// import styles from "./list.scss";
 import { CandidateListItem } from "./blocks/candidateListItem";
 import { ICandidate } from "src/types";
 import { ItemSkeleton } from "./blocks/itemSkeleton";
@@ -11,8 +10,8 @@ interface IListViewProps {
 }
 
 function ListView({ list, isLoading }: IListViewProps) {
-  const renderSkeleton = () => {
-    return Array.from({ length: 5 }).map(() => <ItemSkeleton />);
+  const renderSkeletons = () => {
+    return Array.from({ length: 5 }).map((_, i) => <ItemSkeleton key={i} />);
   };
 
   const renderListItem = (candidate: ICandidate) => {
@@ -20,7 +19,7 @@ function ListView({ list, isLoading }: IListViewProps) {
   };
 
   if (isLoading) {
-    return <>{renderSkeleton()}</>;
+    return <>{renderSkeletons()}</>;
   }
 
   return <>{list.map((candidate) => renderListItem(candidate))} </>;

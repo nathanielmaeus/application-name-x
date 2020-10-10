@@ -1,10 +1,39 @@
-@import 'colors';
+@import "colors";
+@import "screen";
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.vacancy {
+  width: calc(70% - 2rem);
+  margin-right: 2rem;
+  box-sizing: border-box;
+
+  @include maxTablet {
+    width: 100%;
+    margin: 0;
+  }
+}
 
 .layout {
+  display: flex;
+  flex-direction: column;
+  height: max-content;
+  min-width: 320px;
+  width: 30%;
+  padding: 1rem;
+  box-sizing: border-box;
   text-align: left;
   background-color: $colorDarkWhite;
   border-radius: 0.8rem;
-  padding: 2rem;
+
+  @include maxTablet {
+    width: 100%;
+    min-width: 100%;
+    margin-top: 2rem;
+  }
 }
 
 .title {
