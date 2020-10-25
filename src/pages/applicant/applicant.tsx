@@ -1,23 +1,20 @@
 import * as React from "react";
-import { useHistory } from "react-router-dom";
-
+import { useLocation } from "wouter";
 import { Description } from "src/components/description";
 import { Form } from "src/components/form";
 import { IForm } from "src/components/form/form";
-import { saveCandidate } from "src/model";
+import { saveCandidate } from "src/models/candidates";
 
 import styles from "./applicant.scss";
 import { formateFormData } from "./formateFormData";
 
 const Applicant: React.FC = () => {
-  const history = useHistory();
+  const [, setLocation] = useLocation();
 
   const handleSubmit = (data: IForm) => {
-    console.log(data);
-
     const formattedData = formateFormData(data);
     saveCandidate(formattedData);
-    history.push("/candidates");
+    setLocation("/candidates");
   };
 
   return (

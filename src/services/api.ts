@@ -9,7 +9,8 @@ export async function getCandidatesApi(): Promise<ICandidate[]> {
 
   const candidatesFromLocalStorage = getCandidatesFromLS();
   const candidatesFromApiWithIdx = candidatesFromApi.map((candidate, index) => ({ ...candidate, id: index}));
-  return[...candidatesFromLocalStorage, ...candidatesFromApiWithIdx];
+  
+  return [...candidatesFromLocalStorage, ...candidatesFromApiWithIdx];
 }
 
 function sleep(ms: number) {

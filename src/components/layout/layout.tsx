@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link } from "wouter";
 import styles from "./layout.scss";
 
 interface ILayout {
@@ -10,8 +10,10 @@ const Layout: React.FC<ILayout> = ({ children }) => {
   return (
     <>
       <header className={styles.header}>
-        <Link to="/" className={styles.logo}>
-          <h1>JOIN</h1>
+        <Link href="/">
+          <a className={styles.logo}>
+            <h1>JOIN</h1>
+          </a>
         </Link>
         <ul>
           <li>

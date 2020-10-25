@@ -1,9 +1,10 @@
 import * as React from "react";
-import * as ReactDOM from "react-dom";
+import ReactDOM from "react-dom";
 
 import Routes from "./routes/root";
 import "./index.scss";
 
+import "./models";
 
 const App = () => <Routes />;
 

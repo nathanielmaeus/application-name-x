@@ -4,7 +4,7 @@ import cls from "classnames";
 
 import styles from "./candidateListItem.scss";
 import { AdditionActions } from "../additionActions";
-import { changeStatusCandidate, removeCandidate } from "src/model";
+import { changeStatusCandidate, removeCandidate } from "src/models/candidates";
 
 interface ICandidateListItemProps {
   candidate: ICandidate;
